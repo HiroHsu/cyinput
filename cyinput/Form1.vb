@@ -54,6 +54,14 @@ Public Class Form1
     'Temp files checking variables
     Dim tempFilelistOriginal As String()
     Dim temppath As String = IO.Path.GetTempPath.ToString & "cyinput\"
+    
+    Protected Overrides ReadOnly Property CreateParams As CreateParams
+        Get
+            Dim newParams = MyBase.CreateParams
+            newParams.ExStyle = newParams.ExStyle Or &H8000000  'WS_EX_NOACTIVATE
+            Return newParams
+        End Get
+    End Property
 
     Private Function appendToCharSet(number As String)
 
@@ -157,6 +165,14 @@ Public Class Form1
         handleNextWord()
 
         isSelecting = False
+    End Sub
+    
+    Public Sub SendAssoWord(wordtosend As String)
+        SendOut(wordtosend)
+        lastusedword = wordtosend
+        handleNextWord()
+        isSelecting = False
+        largeUI.updateUIbyCharCode(charset)
     End Sub
 
     Private Sub loadWords(Optional mode As Short = 0)
@@ -335,6 +351,15 @@ Public Class Form1
         Draw(largeUI.l7, filterStarToEmptyString(textArray(sp + 6)))
         Draw(largeUI.l8, filterStarToEmptyString(textArray(sp + 7)))
         Draw(largeUI.l9, filterStarToEmptyString(textArray(sp + 8)))
+        largeUI.s1.Text = filterStarToEmptyString(textArray(sp))
+        largeUI.s2.Text = filterStarToEmptyString(textArray(sp + 1))
+        largeUI.s3.Text = filterStarToEmptyString(textArray(sp + 2))
+        largeUI.s4.Text = filterStarToEmptyString(textArray(sp + 3))
+        largeUI.s5.Text = filterStarToEmptyString(textArray(sp + 4))
+        largeUI.s6.Text = filterStarToEmptyString(textArray(sp + 5))
+        largeUI.s7.Text = filterStarToEmptyString(textArray(sp + 6))
+        largeUI.s8.Text = filterStarToEmptyString(textArray(sp + 7))
+        largeUI.s9.Text = filterStarToEmptyString(textArray(sp + 8))
     End Sub
 
     Private Function filterStarToEmptyString(inString As String)
@@ -585,7 +610,7 @@ Public Class Form1
             Return Nothing
         End If
     End Function
-    Private Sub HandleHotkey(keycode As Integer)
+    Public Sub HandleHotkey(keycode As Integer)
         Select Case (keycode)
             Case 96
                 appendToCharSet(0)
