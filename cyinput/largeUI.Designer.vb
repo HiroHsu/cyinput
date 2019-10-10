@@ -26,6 +26,7 @@ Partial Class largeUI
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.l1 = New System.Windows.Forms.Label()
         Me.l2 = New System.Windows.Forms.Label()
@@ -77,6 +78,7 @@ Partial Class largeUI
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(74, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(189, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Cursor = System.Windows.Forms.Cursors.SizeAll
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -84,6 +86,15 @@ Partial Class largeUI
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(170, 21)
         Me.Panel1.TabIndex = 2
+        '
+        'Panel2
+        '
+        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
+        Me.Panel2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Panel2.Location = New System.Drawing.Point(146, -3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(24, 24)
+        Me.Panel2.TabIndex = 1
         '
         'Label1
         '
@@ -393,4 +404,5 @@ Partial Class largeUI
     Friend WithEvents s1 As Label
     Friend WithEvents s2 As Label
     Friend WithEvents s3 As Label
+    Friend WithEvents Panel2 As Panel
 End Class

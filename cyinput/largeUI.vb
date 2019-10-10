@@ -254,5 +254,42 @@
             Form1.SendAssoWord(labelString)
         End If
     End Sub
-    
+
+    Private Sub Panel2_MouseClick(sender As Object, e As MouseEventArgs) Handles Panel2.MouseClick
+        'Dock to the bottom right hand corner of the primary screen when pressing the top right corner arrow
+        Dim dockLocation As Integer = My.Settings.dockingLocation
+        If (dockLocation = 0) Then
+            BottomRightDock()
+        ElseIf dockLocation = 1 Then
+            BottomLeftDock()
+        ElseIf dockLocation = 2 Then
+            TopRightDock()
+        ElseIf dockLocation = 3 Then
+            TopLeftDock()
+        End If
+
+    End Sub
+
+    'Docking Functions for docking the form to different corner of the screen
+    Private Sub TopLeftDock()
+        Location = New Point(0, 0)
+    End Sub
+
+    Private Sub BottomRightDock()
+        Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
+        Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+        Location = New Point(intX - Width, intY - Height)
+    End Sub
+
+    Private Sub BottomLeftDock()
+        Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
+        Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+        Location = New Point(0, intY - Height)
+    End Sub
+
+    Private Sub TopRightDock()
+        Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
+        Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+        Location = New Point(intX - Me.Width, 0)
+    End Sub
 End Class
