@@ -77,12 +77,19 @@ cyinput 具有三種輸入模式，分別為
 
 <img src="https://raw.githubusercontent.com/tobychui/cyinput/master/image/lastname.png"/>
 
+## 自定義界面顏色
+在 13-10-2019 之後的版本已加入可自定義界面顏色的功能。
+
+<img src="https://raw.githubusercontent.com/tobychui/cyinput/master/image/chage-theme.png"/>
+
 ## 其他功能
 - 使用數字鍵盤 "-" 及 "+" 在選字界面前進或後退一頁
 - 使用數字鍵盤 "/" 以顯示 / 隱藏輸入法界面
 - 在正常大小的界面下對文字點擊滑鼠右鍵來進入同音字檢索模式
 - 在 Tary Menu 下可以開關或關閉啟動音效
 - USB 模式：開啟之後輸入法的設定將會儲存在 settings.conf 檔案內，在另一台電腦開啟輸入法時，設定會從檔案載入而不是被重設
+- 輸出簡體中文 (需要在選單開啟)
+- 在正常大小界面下按右上角的小箭頭可以自動把輸入法停泊到螢幕的角落
 
 
 ## 功能需求 / BUG 回報
