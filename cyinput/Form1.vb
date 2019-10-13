@@ -573,7 +573,6 @@ Public Class Form1
         End If
 
         'Check which docking location should be set. Set the corrisponding checkmark on the menu.
-
         If My.Settings.dockingLocation = 0 Then
             'Default option
         ElseIf My.Settings.dockingLocation = 1 Then
@@ -589,6 +588,13 @@ Public Class Form1
             'Something wrong with the config file. Set it to 0 instead.
             My.Settings.dockingLocation = 0
             My.Settings.Save()
+        End If
+
+        'Check if the output should be Formal Chinese or Simplified Chinese, update menu item respectivly
+        If My.Settings.OutputSimplified Then
+            simplifiedChinese.Checked = True
+        Else
+            simplifiedChinese.Checked = False
         End If
     End Sub
 
@@ -818,6 +824,11 @@ Public Class Form1
         'Covent HKSCS Big5 to Unicode
         If Not IfCharacterBig5(text) Then
             text = Big5HKSCSConverter(text)
+        End If
+
+        'Output to simplified chinese if enabled
+        If My.Settings.OutputSimplified Then
+            text = StrConv(text, VbStrConv.SimplifiedChinese, 2052)
         End If
 
         If mode = 0 Then
@@ -1258,5 +1269,19 @@ Public Class Form1
         uncheckAllDockPosition()
         btmLeft.Checked = True
         saveSettings()
+    End Sub
+
+    Private Sub SimplifiedChinese_Click(sender As Object, e As EventArgs) Handles simplifiedChinese.Click
+        My.Settings.OutputSimplified = Not My.Settings.OutputSimplified
+        My.Settings.Save()
+        If My.Settings.OutputSimplified Then
+            simplifiedChinese.Checked = True
+        Else
+            simplifiedChinese.Checked = False
+        End If
+    End Sub
+
+    Private Sub AdvanceSettings_Click(sender As Object, e As EventArgs) Handles advanceSettings.Click
+
     End Sub
 End Class
