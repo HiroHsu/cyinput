@@ -173,6 +173,18 @@ Namespace My
                 Me("OutputSimplified") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("74, 255, 189")>  _
+        Public Property themeColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("themeColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("themeColor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

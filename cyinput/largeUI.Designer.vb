@@ -48,9 +48,12 @@ Partial Class largeUI
         Me.s1 = New System.Windows.Forms.Label()
         Me.s2 = New System.Windows.Forms.Label()
         Me.s3 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -333,12 +336,33 @@ Partial Class largeUI
         Me.s3.Text = "你"
         Me.s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(74, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(189, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Location = New System.Drawing.Point(0, 231)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(171, 28)
+        Me.Panel3.TabIndex = 23
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Location = New System.Drawing.Point(2, 4)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "速型輸入法"
+        '
         'largeUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 11.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(170, 259)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.s3)
         Me.Controls.Add(Me.s2)
         Me.Controls.Add(Me.s1)
@@ -376,6 +400,8 @@ Partial Class largeUI
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -405,4 +431,6 @@ Partial Class largeUI
     Friend WithEvents s2 As Label
     Friend WithEvents s3 As Label
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label2 As Label
 End Class

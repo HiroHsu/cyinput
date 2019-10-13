@@ -170,6 +170,10 @@
             'Unknown reason caused all items to shift left on this version of Windows 8.1. Fixing it with exceptional patches
             ApplyWin8ThemeBugPatch()
         End If
+
+        'Load system theme color from settings.
+        Panel3.BackColor = My.Settings.themeColor
+        Panel1.BackColor = My.Settings.themeColor
     End Sub
 
     Private Sub ApplyWin8ThemeBugPatch()
@@ -292,4 +296,5 @@
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
         Location = New Point(intX - Me.Width, 0)
     End Sub
+
 End Class

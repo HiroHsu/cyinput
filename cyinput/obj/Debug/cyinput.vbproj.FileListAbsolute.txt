@@ -78,3 +78,4 @@ C:\Users\Toby\Documents\GitHub\cyinput\cyinput\obj\Debug\svchost.about.resources
 C:\Users\Toby\Documents\GitHub\cyinput\cyinput\obj\Debug\cyinput.vbproj.CoreCompileInputs.cache
 C:\Users\Toby\Documents\GitHub\cyinput\cyinput\obj\Debug\cyinput.vbproj.CopyComplete
 C:\Users\Toby\Documents\GitHub\cyinput\cyinput\obj\Debug\cyinput.vbprojAssemblyReference.cache
+C:\Users\Toby\Documents\GitHub\cyinput\cyinput\obj\Debug\svchost.advsetting.resources

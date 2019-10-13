@@ -32,5 +32,8 @@
     <Setting Name="OutputSimplified" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="themeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">74, 255, 189</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

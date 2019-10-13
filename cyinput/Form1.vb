@@ -1282,6 +1282,6 @@ Public Class Form1
     End Sub
 
     Private Sub AdvanceSettings_Click(sender As Object, e As EventArgs) Handles advanceSettings.Click
-
+        advsetting.Show()
     End Sub
 End Class
