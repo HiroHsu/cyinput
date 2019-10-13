@@ -571,6 +571,25 @@ Public Class Form1
             enableUSB.Checked = True
             disableUSB.Checked = False
         End If
+
+        'Check which docking location should be set. Set the corrisponding checkmark on the menu.
+
+        If My.Settings.dockingLocation = 0 Then
+            'Default option
+        ElseIf My.Settings.dockingLocation = 1 Then
+            uncheckAllDockPosition()
+            btmLeft.Checked = True
+        ElseIf My.Settings.dockingLocation = 2 Then
+            uncheckAllDockPosition()
+            uprRight.Checked = True
+        ElseIf My.Settings.dockingLocation = 3 Then
+            uncheckAllDockPosition()
+            uprLeft.Checked = True
+        Else
+            'Something wrong with the config file. Set it to 0 instead.
+            My.Settings.dockingLocation = 0
+            My.Settings.Save()
+        End If
     End Sub
 
     Private Sub OnInputEnable()
@@ -1203,4 +1222,41 @@ Public Class Form1
         End If
     End Function
 
+    Private Sub uncheckAllDockPosition()
+        btmRight.Checked = False
+        uprRight.Checked = False
+        uprLeft.Checked = False
+        btmLeft.Checked = False
+    End Sub
+    Private Sub BtmRight_Click(sender As Object, e As EventArgs) Handles btmRight.Click
+        My.Settings.dockingLocation = 0
+        My.Settings.Save()
+        uncheckAllDockPosition()
+        btmRight.Checked = True
+        saveSettings()
+    End Sub
+
+    Private Sub UprRight_Click(sender As Object, e As EventArgs) Handles uprRight.Click
+        My.Settings.dockingLocation = 2
+        My.Settings.Save()
+        uncheckAllDockPosition()
+        uprRight.Checked = True
+        saveSettings()
+    End Sub
+
+    Private Sub UprLeft_Click(sender As Object, e As EventArgs) Handles uprLeft.Click
+        My.Settings.dockingLocation = 3
+        My.Settings.Save()
+        uncheckAllDockPosition()
+        uprLeft.Checked = True
+        saveSettings()
+    End Sub
+
+    Private Sub BtmLeft_Click(sender As Object, e As EventArgs) Handles btmLeft.Click
+        My.Settings.dockingLocation = 1
+        My.Settings.Save()
+        uncheckAllDockPosition()
+        btmLeft.Checked = True
+        saveSettings()
+    End Sub
 End Class
