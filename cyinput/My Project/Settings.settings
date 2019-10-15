@@ -35,5 +35,8 @@
     <Setting Name="themeColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">74, 255, 189</Value>
     </Setting>
+    <Setting Name="shortcutKeywords" Type="System.String" Scope="User">
+      <Value Profile="(Default)">屌柒閪嗰囖噏啲喺㗎</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

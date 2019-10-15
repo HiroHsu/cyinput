@@ -185,6 +185,18 @@ Namespace My
                 Me("themeColor") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("屌柒閪嗰囖噏啲喺㗎")>  _
+        Public Property shortcutKeywords() As String
+            Get
+                Return CType(Me("shortcutKeywords"),String)
+            End Get
+            Set
+                Me("shortcutKeywords") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

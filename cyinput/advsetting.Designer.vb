@@ -22,9 +22,13 @@ Partial Class advsetting
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(advsetting))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,9 +51,8 @@ Partial Class advsetting
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.hideMessage = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -72,6 +75,7 @@ Partial Class advsetting
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label4)
         Me.TabPage1.Controls.Add(Me.Button3)
         Me.TabPage1.Controls.Add(Me.Button2)
         Me.TabPage1.Controls.Add(Me.TextBox1)
@@ -84,14 +88,41 @@ Partial Class advsetting
         Me.TabPage1.Text = "快捷輸入"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(10, 171)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(128, 23)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "回覆預設設定"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(532, 171)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "儲存"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(10, 40)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(597, 125)
+        Me.TextBox1.TabIndex = 1
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(8, 12)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(488, 24)
+        Me.Label3.Size = New System.Drawing.Size(593, 24)
         Me.Label3.TabIndex = 0
-        Me.Label3.Text = "請輸入你登錄在快速輸入列表的中文字，並以 , 作分隔。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "每一個位置可放多於一個字 （如常用的詞語或短句），但是系統只會顯示每句的頭一個字。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label3.Text = "請輸入你登錄在快速輸入列表的中文字，每一個字將會佔用一個方格位置。排版次序為數字鍵盤上數字之次序。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "（上限為 9個字元，超過 9個字元將只會顯示頭 9個字）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
+    ""
         '
         'TabPage2
         '
@@ -300,33 +331,20 @@ Partial Class advsetting
         Me.Panel1.Size = New System.Drawing.Size(80, 80)
         Me.Panel1.TabIndex = 0
         '
-        'TextBox1
+        'Label4
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(10, 40)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(597, 125)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.Text = "本功能還未開放使用"
+        Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(413, 176)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(113, 12)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "已儲存快速輸入列表"
+        Me.Label4.Visible = False
         '
-        'Button2
+        'hideMessage
         '
-        Me.Button2.Location = New System.Drawing.Point(532, 171)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "儲存"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(10, 171)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(128, 23)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "回覆預設設定"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.hideMessage.Interval = 3000
         '
         'advsetting
         '
@@ -380,4 +398,6 @@ Partial Class advsetting
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents hideMessage As Timer
 End Class

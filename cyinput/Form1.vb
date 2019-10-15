@@ -186,6 +186,9 @@ Public Class Form1
         ElseIf mode = 1 Then
             'load from AssoicatedWords
             wordlist = loadAssoicatedWords()
+        ElseIf mode = 2 Then
+            'load from setting for shortcut keywords
+            wordlist = loadShortcutKeyWords()
         End If
 
         textArray.Clear()
@@ -276,6 +279,11 @@ Public Class Form1
             End If
         Next
         Return returnvalue
+    End Function
+
+    Private Function loadShortcutKeyWords()
+        Dim source = My.Settings.shortcutKeywords
+        Return source
     End Function
 
     Private Function getWordList()
@@ -681,13 +689,10 @@ Public Class Form1
                 End If
             Case 106
                 '* pressed
-                Return
-                'This function is work in progress. Remove the return above to perform testing
-                If shortcuts.visable = True Then
-                    shortcuts.setVisable(False)
-                Else
-                    shortcuts.setVisable(True)
-                End If
+                'Load keyword from settings for shortcut keywords
+                loadWords(2)
+                'Hide largeUI bg and small texts
+                largeUI.updateUIbyCharCode(charset)
             Case 111
                 '/ pressed (Keypad)
                 ToggleInputWindow()

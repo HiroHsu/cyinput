@@ -98,6 +98,30 @@
             clearAllThemeColorSelection()
             RadioButton5.Checked = True
         End If
+
+        'Load the shortcut key words from setting
+        TextBox1.Text = My.Settings.shortcutKeywords
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        My.Settings.shortcutKeywords = TextBox1.Text
+        My.Settings.Save()
+        Form1.saveSettings()
+        Label4.Visible = True
+        hideMessage.Enabled = True
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        My.Settings.shortcutKeywords = "屌柒閪嗰囖噏啲喺㗎"
+        My.Settings.Save()
+        Form1.saveSettings()
+        TextBox1.Text = My.Settings.shortcutKeywords
+        Label4.Visible = True
+        hideMessage.Enabled = True
+    End Sub
+
+    Private Sub HideMessage_Tick(sender As Object, e As EventArgs) Handles hideMessage.Tick
+        hideMessage.Enabled = False
+        Label4.Visible = False
+    End Sub
 End Class
