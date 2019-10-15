@@ -112,7 +112,7 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        My.Settings.shortcutKeywords = "屌柒閪嗰囖噏啲喺㗎"
+        My.Settings.shortcutKeywords = "屌柒閪嗰囖咗啲喺㗎"
         My.Settings.Save()
         Form1.saveSettings()
         TextBox1.Text = My.Settings.shortcutKeywords

@@ -188,7 +188,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("屌柒閪嗰囖噏啲喺㗎")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("屌柒閪嗰囖咗啲喺㗎")>  _
         Public Property shortcutKeywords() As String
             Get
                 Return CType(Me("shortcutKeywords"),String)
