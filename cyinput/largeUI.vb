@@ -82,8 +82,8 @@
 
         'no need for charcode.Length = 3 because if charcode.Length = 3 , it will in selecting mode
     End Sub
-    
-    Private Sub HideLargeLabels()
+
+    Public Sub HideLargeLabels()
         l1.Text = ""
         l2.Text = ""
         l3.Text = ""
@@ -94,7 +94,7 @@
         l8.Text = ""
         l9.Text = ""
     End Sub
-    Private Sub HideSmallLabels()
+    Public Sub HideSmallLabels()
         s1.Visible = False
         s2.Visible = False
         s3.Visible = False
@@ -105,7 +105,7 @@
         s8.Visible = False
         s9.Visible = False
     End Sub
-    Private Sub ShowSmallLabels()
+    Public Sub ShowSmallLabels()
         s1.Visible = True
         s2.Visible = True
         s3.Visible = True
@@ -116,7 +116,7 @@
         s8.Visible = True
         s9.Visible = True
     End Sub
-    
+
     Private Sub loadInterface(key As String)
         Dim path As String = IO.Path.GetTempPath.ToString & "cyinput\lui\"
         PictureBox2.BackgroundImage = System.Drawing.Bitmap.FromFile(path & "cyi_" & key & ".png")

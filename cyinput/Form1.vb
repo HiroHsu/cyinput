@@ -787,6 +787,7 @@ Public Class Form1
             If (currentSize = 0) Then
                 Me.Show()
             Else
+                'Fix bugs reported overlapping font on large UI
                 largeUI.Show()
             End If
             OnInputEnable()
@@ -957,6 +958,7 @@ Public Class Form1
     Private Sub ToggleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToggleToolStripMenuItem.Click
         'Handle window toggle from tool strip menu 
         ToggleInputWindow()
+        largeUI.updateUIbyCharCode(charset)
     End Sub
 
 
@@ -1061,6 +1063,7 @@ Public Class Form1
     Private Sub TrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TrayIcon.MouseDoubleClick
         'Toggle Input by DoubleClick TrayIcon
         ToggleInputWindow()
+        largeUI.updateUIbyCharCode(charset)
     End Sub
 
     Private Sub NormalSizedToggleClick(sender As Object, e As EventArgs) Handles NormalSizedToggle.Click
@@ -1104,6 +1107,7 @@ Public Class Form1
         If My.Computer.Keyboard.ScrollLock <> scrollLockState Then
             scrollLockState = My.Computer.Keyboard.ScrollLock
             ToggleInputWindow()
+            largeUI.updateUIbyCharCode(charset)
         End If
     End Sub
 
