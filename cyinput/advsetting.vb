@@ -18,7 +18,9 @@
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         If RadioButton1.Checked = True Then
-            My.Settings.themeColor = Panel1.BackColor
+            My.Settings.themeColor_R = Panel1.BackColor.R
+            My.Settings.themeColor_G = Panel1.BackColor.G
+            My.Settings.themeColor_B = Panel1.BackColor.B
             My.Settings.Save()
             Form1.saveSettings()
         End If
@@ -27,7 +29,9 @@
 
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         If RadioButton2.Checked = True Then
-            My.Settings.themeColor = Panel2.BackColor
+            My.Settings.themeColor_R = Panel2.BackColor.R
+            My.Settings.themeColor_G = Panel2.BackColor.G
+            My.Settings.themeColor_B = Panel2.BackColor.B
             My.Settings.Save()
             Form1.saveSettings()
         End If
@@ -36,7 +40,9 @@
 
     Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
         If RadioButton3.Checked = True Then
-            My.Settings.themeColor = Panel6.BackColor
+            My.Settings.themeColor_R = Panel6.BackColor.R
+            My.Settings.themeColor_G = Panel6.BackColor.G
+            My.Settings.themeColor_B = Panel6.BackColor.B
             My.Settings.Save()
             Form1.saveSettings()
         End If
@@ -45,7 +51,9 @@
 
     Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
         If RadioButton4.Checked = True Then
-            My.Settings.themeColor = Panel7.BackColor
+            My.Settings.themeColor_R = Panel7.BackColor.R
+            My.Settings.themeColor_G = Panel7.BackColor.G
+            My.Settings.themeColor_B = Panel7.BackColor.B
             My.Settings.Save()
             Form1.saveSettings()
         End If
@@ -54,7 +62,9 @@
 
     Private Sub RadioButton5_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton5.CheckedChanged
         If RadioButton5.Checked Then
-            My.Settings.themeColor = Color.FromArgb(NumericUpDown1.Value, NumericUpDown2.Value, NumericUpDown3.Value)
+            My.Settings.themeColor_R = NumericUpDown1.Value
+            My.Settings.themeColor_G = NumericUpDown2.Value
+            My.Settings.themeColor_B = NumericUpDown3.Value
             My.Settings.Save()
             Form1.saveSettings()
         End If
@@ -62,7 +72,9 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        My.Settings.themeColor = Color.FromArgb(NumericUpDown1.Value, NumericUpDown2.Value, NumericUpDown3.Value)
+        My.Settings.themeColor_R = NumericUpDown1.Value
+        My.Settings.themeColor_G = NumericUpDown2.Value
+        My.Settings.themeColor_B = NumericUpDown3.Value
         My.Settings.Save()
         Form1.saveSettings()
     End Sub
@@ -78,7 +90,7 @@
     Private Sub Advsetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Initialize the theme color selection
-        Dim defaultBackColor As Color = My.Settings.themeColor
+        Dim defaultBackColor As Color = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
         If defaultBackColor.Equals(Panel1.BackColor) Then
             clearAllThemeColorSelection()
             RadioButton1.Checked = True

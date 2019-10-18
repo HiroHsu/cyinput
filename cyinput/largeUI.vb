@@ -27,9 +27,6 @@
             newpoint.X -= (xpos1)
             newpoint.Y -= (ypos1)
             Me.Location = newpoint
-            If shortcuts.visable Then
-                shortcuts.adjustThisFormLocation(newpoint)
-            End If
             My.Settings.startPositionTop = Top
             My.Settings.startPositionLeft = Left
             My.Settings.numberOfMonitors = Screen.AllScreens.Length
@@ -172,8 +169,8 @@
         End If
 
         'Load system theme color from settings.
-        Panel3.BackColor = My.Settings.themeColor
-        Panel1.BackColor = My.Settings.themeColor
+        Panel3.BackColor = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
+        Panel1.BackColor = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
     End Sub
 
     Private Sub ApplyWin8ThemeBugPatch()
@@ -296,5 +293,4 @@
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
         Location = New Point(intX - Me.Width, 0)
     End Sub
-
 End Class

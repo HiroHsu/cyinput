@@ -176,13 +176,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("74, 255, 189")>  _
-        Public Property themeColor() As Global.System.Drawing.Color
+         Global.System.Configuration.DefaultSettingValueAttribute("74")>  _
+        Public Property themeColor_R() As Integer
             Get
-                Return CType(Me("themeColor"),Global.System.Drawing.Color)
+                Return CType(Me("themeColor_R"),Integer)
             End Get
             Set
-                Me("themeColor") = value
+                Me("themeColor_R") = value
             End Set
         End Property
         
@@ -195,6 +195,30 @@ Namespace My
             End Get
             Set
                 Me("shortcutKeywords") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("255")>  _
+        Public Property themeColor_G() As Integer
+            Get
+                Return CType(Me("themeColor_G"),Integer)
+            End Get
+            Set
+                Me("themeColor_G") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("189")>  _
+        Public Property themeColor_B() As Integer
+            Get
+                Return CType(Me("themeColor_B"),Integer)
+            End Get
+            Set
+                Me("themeColor_B") = value
             End Set
         End Property
     End Class
