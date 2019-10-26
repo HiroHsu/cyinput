@@ -119,7 +119,25 @@
         PictureBox2.BackgroundImage = System.Drawing.Bitmap.FromFile(path & "cyi_" & key & ".png")
     End Sub
 
+    Public Sub initiateInterfaceMode()
+        'This function update the largeUI from touchscreen or default mode using values in My.Setting.touchMode
+        Dim defaultSize As Size = New Size(164, 258)
+        Dim touchSize As Size = New Size(200, 300)
+        If (My.Settings.touchMode = True) Then
+            Me.MaximumSize = touchSize
+            Me.Size = touchSize
+            Panel3.Width = 163
+        Else
+            Me.MaximumSize = defaultSize
+            Me.Size = defaultSize
+            Panel3.Width = 170
+        End If
+    End Sub
+
     Private Sub largeUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Load the UI mode from setting (defualt / touchscreen)
+        initiateInterfaceMode()
+
         HideLargeLabels()
         HideSmallLabels()
         s1.Location = PictureBox2.PointToClient(Me.PointToScreen(s1.Location))
@@ -171,6 +189,8 @@
         'Load system theme color from settings.
         Panel3.BackColor = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
         Panel1.BackColor = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
+        PictureBox3.BackColor = Color.FromArgb(My.Settings.themeColor_R, My.Settings.themeColor_G, My.Settings.themeColor_B)
+
     End Sub
 
     Private Sub ApplyWin8ThemeBugPatch()
@@ -198,14 +218,6 @@
         l7.Left += x
         l8.Left += x
         l9.Left += x
-    End Sub
-    
-    Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs) Handles Panel1.MouseClick
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
     End Sub
 
     Private Sub l_MouseDown(sender As Object, e As MouseEventArgs) Handles l1.MouseDown, l2.MouseDown, l3.MouseDown, l4.MouseDown, l5.MouseDown, l6.MouseDown, l7.MouseDown, l8.MouseDown, l9.MouseDown
@@ -292,5 +304,20 @@
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
         Location = New Point(intX - Me.Width, 0)
+    End Sub
+
+    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
+        ' Press backspace
+        SendKeys.Send("{BACKSPACE}")
+    End Sub
+
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        'Press Enter
+        SendKeys.Send("{ENTER}")
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        'Inject a space into the cursor location
+        SendKeys.Send(" ")
     End Sub
 End Class

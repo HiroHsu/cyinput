@@ -604,6 +604,13 @@ Public Class Form1
         Else
             simplifiedChinese.Checked = False
         End If
+
+        'Check if touch screen mode is used
+        If My.Settings.touchMode = True Then
+            UseOnScreenKeyboardModeToolStripMenuItem.Checked = True
+        Else
+            UseOnScreenKeyboardModeToolStripMenuItem.Checked = False
+        End If
     End Sub
 
     Private Sub OnInputEnable()
@@ -1292,5 +1299,17 @@ Public Class Form1
 
     Private Sub AdvanceSettings_Click(sender As Object, e As EventArgs) Handles advanceSettings.Click
         advsetting.Show()
+    End Sub
+
+    Private Sub UseOnScreenKeyboardModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UseOnScreenKeyboardModeToolStripMenuItem.Click
+        My.Settings.touchMode = Not My.Settings.touchMode
+        My.Settings.Save()
+        saveSettings()
+        largeUI.initiateInterfaceMode()
+        If My.Settings.touchMode = True Then
+            UseOnScreenKeyboardModeToolStripMenuItem.Checked = True
+        Else
+            UseOnScreenKeyboardModeToolStripMenuItem.Checked = False
+        End If
     End Sub
 End Class

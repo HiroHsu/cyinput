@@ -221,6 +221,18 @@ Namespace My
                 Me("themeColor_B") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property touchMode() As Boolean
+            Get
+                Return CType(Me("touchMode"),Boolean)
+            End Get
+            Set
+                Me("touchMode") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
