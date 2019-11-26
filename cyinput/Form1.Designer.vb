@@ -71,7 +71,6 @@ Partial Class Form1
         Me.disableUSB = New System.Windows.Forms.ToolStripMenuItem()
         Me.simplifiedChinese = New System.Windows.Forms.ToolStripMenuItem()
         Me.advanceSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitAppItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.onLoadHide = New System.Windows.Forms.Timer(Me.components)
         Me.scrollLockListener = New System.Windows.Forms.Timer(Me.components)
@@ -319,15 +318,15 @@ Partial Class Form1
         '
         'TrayMenu
         '
-        Me.TrayMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InputModeMenu, Me.起動音效ToolStripMenuItem, Me.視窗設定ToolStripMenuItem, Me.exportSettingsToolStripMenuItem, Me.simplifiedChinese, Me.advanceSettings, Me.AboutToolStripMenuItem, Me.ExitAppItem})
+        Me.TrayMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InputModeMenu, Me.起動音效ToolStripMenuItem, Me.視窗設定ToolStripMenuItem, Me.exportSettingsToolStripMenuItem, Me.simplifiedChinese, Me.advanceSettings, Me.ExitAppItem})
         Me.TrayMenu.Name = "ContextMenuStrip1"
-        Me.TrayMenu.Size = New System.Drawing.Size(149, 180)
+        Me.TrayMenu.Size = New System.Drawing.Size(181, 180)
         '
         'InputModeMenu
         '
         Me.InputModeMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClipboardModeItem, Me.DirectOutputModeItem, Me.CangjieConversionModeItem})
         Me.InputModeMenu.Name = "InputModeMenu"
-        Me.InputModeMenu.Size = New System.Drawing.Size(148, 22)
+        Me.InputModeMenu.Size = New System.Drawing.Size(180, 22)
         Me.InputModeMenu.Text = "輸入模式"
         '
         'ClipboardModeItem
@@ -352,7 +351,7 @@ Partial Class Form1
         '
         Me.起動音效ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.啟用ToolStripMenuItem, Me.停用ToolStripMenuItem})
         Me.起動音效ToolStripMenuItem.Name = "起動音效ToolStripMenuItem"
-        Me.起動音效ToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.起動音效ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.起動音效ToolStripMenuItem.Text = "起動音效"
         '
         '啟用ToolStripMenuItem
@@ -373,7 +372,7 @@ Partial Class Form1
         '
         Me.視窗設定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.縮放ToolStripMenuItem, Me.停泊位置ToolStripMenuItem, Me.ToggleToolStripMenuItem, Me.ResetWindowPositionItem, Me.useScrollLockInstead, Me.UseOnScreenKeyboardModeToolStripMenuItem})
         Me.視窗設定ToolStripMenuItem.Name = "視窗設定ToolStripMenuItem"
-        Me.視窗設定ToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.視窗設定ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.視窗設定ToolStripMenuItem.Text = "視窗設定"
         '
         '縮放ToolStripMenuItem
@@ -458,7 +457,7 @@ Partial Class Form1
         '
         Me.exportSettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.enableUSB, Me.disableUSB})
         Me.exportSettingsToolStripMenuItem.Name = "exportSettingsToolStripMenuItem"
-        Me.exportSettingsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.exportSettingsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.exportSettingsToolStripMenuItem.Text = "USB 模式"
         '
         'enableUSB
@@ -480,25 +479,19 @@ Partial Class Form1
         'simplifiedChinese
         '
         Me.simplifiedChinese.Name = "simplifiedChinese"
-        Me.simplifiedChinese.Size = New System.Drawing.Size(148, 22)
+        Me.simplifiedChinese.Size = New System.Drawing.Size(180, 22)
         Me.simplifiedChinese.Text = "輸出簡體中文"
         '
         'advanceSettings
         '
         Me.advanceSettings.Name = "advanceSettings"
-        Me.advanceSettings.Size = New System.Drawing.Size(148, 22)
+        Me.advanceSettings.Size = New System.Drawing.Size(180, 22)
         Me.advanceSettings.Text = "進階設定"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.AboutToolStripMenuItem.Text = "關於"
         '
         'ExitAppItem
         '
         Me.ExitAppItem.Name = "ExitAppItem"
-        Me.ExitAppItem.Size = New System.Drawing.Size(148, 22)
+        Me.ExitAppItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitAppItem.Text = "關閉輸入法"
         '
         'onLoadHide
@@ -604,7 +597,6 @@ Partial Class Form1
     Friend WithEvents scrollLockListener As Timer
     Friend WithEvents TempFolderChecker As Timer
     Friend WithEvents exportSettingsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents enableUSB As ToolStripMenuItem
     Friend WithEvents disableUSB As ToolStripMenuItem
     Friend WithEvents 停泊位置ToolStripMenuItem As ToolStripMenuItem

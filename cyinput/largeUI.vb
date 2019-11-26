@@ -291,12 +291,20 @@
     Private Sub BottomRightDock()
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+        If (My.Settings.dockingOffset) Then
+            Dim taskbarHeight = My.Computer.Screen.Bounds.Height - My.Computer.Screen.WorkingArea.Height
+            intY = intY - taskbarHeight
+        End If
         Location = New Point(intX - Width, intY - Height)
     End Sub
 
     Private Sub BottomLeftDock()
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+        If (My.Settings.dockingOffset) Then
+            Dim taskbarHeight = My.Computer.Screen.Bounds.Height - My.Computer.Screen.WorkingArea.Height
+            intY = intY - taskbarHeight
+        End If
         Location = New Point(0, intY - Height)
     End Sub
 
@@ -320,4 +328,5 @@
         'Inject a space into the cursor location
         SendKeys.Send(" ")
     End Sub
+
 End Class

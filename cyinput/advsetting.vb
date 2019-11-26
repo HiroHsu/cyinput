@@ -1,4 +1,6 @@
-﻿Public Class advsetting
+﻿Imports System.Reflection
+
+Public Class advsetting
     Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
         'Me.BackColor = Color.FromArgb(117, 123, 56)
     End Sub
@@ -113,6 +115,18 @@
 
         'Load the shortcut key words from setting
         TextBox1.Text = My.Settings.shortcutKeywords
+
+        'Load version numbers
+        Label10.Text = Application.ProductVersion
+        Dim fecha As Date = IO.File.GetCreationTime(Assembly.GetExecutingAssembly().Location)
+        Label6.Text = fecha.ToLocalTime.ToString()
+
+        'Check if offset is required for docking
+        If My.Settings.dockingOffset = True Then
+            CheckBox1.Checked = True
+        Else
+            CheckBox1.Checked = False
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -135,5 +149,20 @@
     Private Sub HideMessage_Tick(sender As Object, e As EventArgs) Handles hideMessage.Tick
         hideMessage.Enabled = False
         Label4.Visible = False
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Process.Start("https://github.com/tobychui/cyinput")
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        My.Settings.dockingOffset = CheckBox1.Checked
+        My.Settings.Save()
+
+        If My.Settings.dockingOffset = True Then
+            CheckBox1.Checked = True
+        Else
+            CheckBox1.Checked = False
+        End If
     End Sub
 End Class
